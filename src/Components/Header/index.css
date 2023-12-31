@@ -1,0 +1,104 @@
+.header {
+  width: 100%;
+  height: 6.15vh;
+  background: #fff;
+  box-shadow: 0px 0px 1px #000;
+  margin-bottom: 8vh;
+}
+
+.header__nav {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.header__list {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 20vw;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.item__link.-logo {
+  color: #fff;
+  padding: 5.5px;
+  background: #000000;
+  border-radius: 4px;
+}
+
+.item__link.-logo:hover {
+  background: #2a97b3;
+}
+
+.item__link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin: 5px;
+  padding: 7.5px;
+  font-weight: 500;
+  background: #2950d1;
+  border-radius: 4px;
+  transition: all .15s;
+}
+
+.link__text {
+  width: 100%;
+  height: 100%;
+  line-height: 20px;
+}
+
+.header__auth {
+  width: 100%;
+  justify-content: end;
+  margin-right: 25vw;
+  display: flex;
+}
+
+.-register {
+  color: #000;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #000;
+}
+
+.-register:hover {
+  box-shadow: inset 0px 0px 100px #bbbbbb49;
+}
+
+.-login {
+  border: 1px solid #2950d1;
+}
+
+
+.-login:hover {
+  box-shadow: inset 0px 0px 100px #0e1c4973;
+}
+
+.-exit {
+  background: #d35858;
+}
+
+.-exit:hover {
+  box-shadow: inset 0px 0px 100px #a54646;
+}
+
+.-basket:hover {
+  box-shadow: inset 0px 0px 100px #0e1c4973;
+}
+
+.-me:hover {
+  box-shadow: inset 0px 0px 100px #0e1c4973;
+}

@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Header } from "./Components/Header";
+import { Home } from "./Pages/HomePage";
+import { Register } from "./Pages/Register";
+import { Login } from "./Pages/Login";
+import { Basket } from "./Pages/Basket";
+import { PersonalAccount } from "./Pages/PersonalAccount";
+import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+
+  const dispatch = useDispatch()
+  const isAuth = useSelector(selectIsAuth);
+
+  React.useEffect(() => {
+    dispatch(fetchAuthMe())
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="/register" element={ <Register/> } />
+        <Route path="/login" element={ <Login/> } />
+        <Route path="/basket" element={ <Basket/> } />
+        <Route path="/personal_account" element={ <PersonalAccount/> } />
+      </Routes>
+    </>
   );
 }
 

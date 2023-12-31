@@ -1,0 +1,48 @@
+h1 {
+  margin: 25px 0px 25px 20px;
+  align-self: flex-start;
+}
+
+.pa__main {
+  /* border: 1px solid #000; */
+  margin: auto auto 8vh auto;
+  width: 65vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main__body {
+  /* border: 1px solid red; */
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px #000;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 2vh;
+  row-gap: 2vw;
+  margin-bottom: 2vw;
+}
+
+.pa__body {
+  font-size: 1.15em;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  margin: 30px 50px;
+}
+
+.pa__body>input {
+  /* width: 150%; */
+  padding: 2px 0px 2px 5px;
+  border-radius: 5px;
+  font-size: 1.15em;
+}
+
+.pa__body.--text {
+  display: flex;
+  row-gap: 40px;
+}
