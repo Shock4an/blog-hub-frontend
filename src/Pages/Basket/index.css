@@ -1,0 +1,49 @@
+.basket__order {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px 0px 15px;
+  justify-content: space-between;
+}
+
+.order__button {
+  margin-left: 5px;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: white;
+  padding: 5px;
+  line-height: 1.3em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #000;
+}
+
+.basket__buttons {
+  display: flex;
+}
+
+.-active {
+  background: #2aad3c;
+}
+
+.-delete {
+  background: #d35858;
+}
+
+.-active:hover {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 200px #30303052,
+    0px 0px 5px #000;
+}
+
+.order__sumprice {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.order__sumprice {
+  margin-right: 180px;
+}
+
+.order__sumprice.-pa {
+  margin-right: 65px;
+}
+

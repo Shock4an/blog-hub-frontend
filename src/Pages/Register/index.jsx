@@ -35,7 +35,6 @@ export const Register = () => {
     const data = await dispatch(fetchRegister(values))
 
     if(!data.payload) {
-      console.log(data)
       return alert("Не удалось зарегистрироватся")
     }
 

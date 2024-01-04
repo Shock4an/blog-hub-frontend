@@ -1,0 +1,8 @@
+.orderSection__body {
+  width: 80%;
+  height: auto;
+  margin: 25px auto;
+  padding: 15px;
+  box-shadow: 0px 0px 0px 2px #000;
+  border-radius: 5px;
+}

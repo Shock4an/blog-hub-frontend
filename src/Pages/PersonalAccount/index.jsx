@@ -4,11 +4,17 @@ import React, { useState } from 'react';
 import { selectIsAuth, fetchAuthMe } from '../../redux/slices/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { fetchOrders } from '../../redux/slices/order';
+import { OrderedProduct } from '../../Components/OrderedProduct';
+import { Order } from '../../Components/Order';
 
 export const PersonalAccount = () => {
 
   const dispatch = useDispatch()
-    const isAuth = useSelector(selectIsAuth);
+  const isAuth = useSelector(selectIsAuth);
+  const { orders } = useSelector(state => state.orders)
+
+  const isOrdersLoading = orders.status === 'loading'
 
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
@@ -16,23 +22,28 @@ export const PersonalAccount = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await dispatch(fetchAuthMe())
-        setFullName(response.payload.fullName)
-        setEmail(response.payload.email)
+        const auth = await dispatch(fetchAuthMe())
+
+        setFullName(auth.payload.fullName)
+        setEmail(auth.payload.email)
+
+        dispatch(fetchOrders())
       } catch (err) {
-        console.log('Ошибка при проверке аутентификации', err);
+        console.warn('Ошибка при проверке аутентификации', err);
       }
     }
 
-    fetchData(); 
+    fetchData();
 
-    return () => {};
-    
+    return () => { };
+
   }, [])
-  
 
-  if(!window.localStorage.getItem('token') && !isAuth) {
-    return <Navigate to="/"/>
+  // orders.items.map(obj => obj.items.map(el => console.log(el.item.price * el.count)))
+
+
+  if (!window.localStorage.getItem('token') && !isAuth) {
+    return <Navigate to="/" />
   }
 
 
@@ -65,7 +76,16 @@ export const PersonalAccount = () => {
         </div>
 
         <h1>Покупки</h1>
-        <div className='main__body'>
+        <div className='main__body -order'>
+          {
+            orders.items.map(obj => {
+              return (
+                <>
+                  <Order item={obj} />
+                </>
+              )
+            })
+          }
         </div>
       </section>
     </>
