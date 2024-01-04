@@ -99,30 +99,3 @@ export const Basket = () => {
     </>
   )
 }
-
-
-// {products && (
-//   <>
-//     <OrderedProduct
-//        id={products[0].id}
-//        name={products[0].name}
-//        price={products[0].price}
-//        img={products[0].img}
-//        count={products[0].count}
-//     />
-//     <OrderedProduct
-//       id={products[1].id}
-//       name={products[1].name}
-//       price={products[1].price}
-//       img={products[1].img}
-//       count={products[1].count}
-//     />
-//     <OrderedProduct
-//       id={products[2].id}
-//       name={products[2].name}
-//       price={products[2].price}
-//       img={products[2].img}
-//       count={products[2].count}
-//     />
-//   </>
-// )}

@@ -33,7 +33,7 @@ export const Home = () => {
                 name={obj.name}
                 price={obj.price}
                 isAuth={isAuth}
-                img={obj.imageUrl ? `${process.env.REACT_APP_API_URL || `http://localhost:4444/uploads/`}${obj.imageUrl}` : `../../images/${obj.imageUrl}`}
+                img={obj.imageUrl ? `${process.env.REACT_APP_API_URL || `http://localhost:4444`}/uploads/${obj.imageUrl}` : `../../images/${obj.imageUrl}`}
               />)
           )
         })}
