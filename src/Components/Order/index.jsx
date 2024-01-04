@@ -14,7 +14,7 @@ export const Order = ({
   const dispatch = useDispatch()
   const [sumPrice, setPriceSum] = useState(item.price)
 
-  const API_URL = `${process.env.REACT_APP_API_URL || `http://localhost:4444`}/uploads`
+  const API_URL = `${process.env.REACT_APP_API_URL || `http://localhost:4444`}/uploads/`
 
   const onClickRemove = () => {
     if(window.confirm("Хотите удалить заказ?")) {
