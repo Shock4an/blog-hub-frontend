@@ -13,7 +13,7 @@ export const OrderedProduct = ({
 }) => {
 
   const [componentCount, setComponentCount] = useState(count)
-  const [componentPrice, setComponentPrice] = useState(count * price)
+  const [componentPrice, setComponentPrice] = useState((count * price).toFixed(2))
 
   const handleDelete = () => {
     onDelete(id)
