@@ -9,6 +9,7 @@ import { OrderedProduct } from '../../Components/OrderedProduct';
 import { Order } from '../../Components/Order';
 
 export const PersonalAccount = () => {
+  let auth;
 
   const dispatch = useDispatch()
   const isAuth = useSelector(selectIsAuth);
@@ -22,7 +23,7 @@ export const PersonalAccount = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const auth = await dispatch(fetchAuthMe())
+        auth = await dispatch(fetchAuthMe())
 
         setFullName(auth.payload.fullName)
         setEmail(auth.payload.email)
@@ -38,6 +39,9 @@ export const PersonalAccount = () => {
     return () => { };
 
   }, [])
+
+  console.log(auth)
+  console.log(orders)
 
   // orders.items.map(obj => obj.items.map(el => console.log(el.item.price * el.count)))
 
@@ -57,21 +61,19 @@ export const PersonalAccount = () => {
             <span className="item--text">E-mail:</span>
           </div>
           <div className="pa__body --input">
-            <>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setFullName(e.target.value)
-                }}
-                value={fullName} />
-              <input
-                type="text"
-                set
-                onChange={(e) => {
-                  setEmail(e.target.value)
-                }}
-                value={email} />
-            </>
+            <input
+              type="text"
+              onChange={(e) => {
+                setFullName(e.target.value)
+              }}
+              value={fullName} />
+            <input
+              type="text"
+              set
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
+              value={email} />
           </div>
         </div>
 
@@ -79,6 +81,7 @@ export const PersonalAccount = () => {
         <div className='main__body -order'>
           {
             orders.items.map(obj => {
+              
               return (
                 <>
                   <Order item={obj} />
