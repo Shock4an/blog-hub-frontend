@@ -40,7 +40,7 @@ export const PersonalAccount = () => {
 
   }, [])
 
-  console.log(userId)
+  console.log(userId._id)
   console.log(orders.items)
 
   // orders.items.map(obj => obj.items.map(el => console.log(el.item.price * el.count)))
