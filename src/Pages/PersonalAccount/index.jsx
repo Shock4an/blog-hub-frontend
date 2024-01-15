@@ -1,7 +1,7 @@
 import './index.css'
 
 import React, { useState } from 'react';
-import { selectIsAuth, fetchAuthMe } from '../../redux/slices/auth';
+import { selectIsAuth, fetchAuthMe, _userId } from '../../redux/slices/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { fetchOrders } from '../../redux/slices/order';
@@ -13,6 +13,7 @@ export const PersonalAccount = () => {
 
   const dispatch = useDispatch()
   const isAuth = useSelector(selectIsAuth);
+  const userId = useSelector(_userId)
   const { orders } = useSelector(state => state.orders)
 
   const isOrdersLoading = orders.status === 'loading'
@@ -40,7 +41,7 @@ export const PersonalAccount = () => {
 
   }, [])
 
-  console.log(auth)
+  console.log(userId)
   console.log(orders)
   console.log(orders.items)
 
@@ -82,7 +83,7 @@ export const PersonalAccount = () => {
         <div className='main__body -order'>
           {
             orders.items.map(obj => {
-              if(obj.user._id == auth.payload._id) {console.log(obj.user._id, auth.payload._id)}
+              if(obj.user._id == userId) {console.log(obj.user._id, auth.payload._id)}
               return (
                 <>
                   <Order item={obj} />
