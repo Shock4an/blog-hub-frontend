@@ -40,8 +40,9 @@ export const PersonalAccount = () => {
 
   }, [])
 
-  console.log(auth)
+  console.log(auth.payload)
   console.log(orders)
+  console.log(orders.items)
 
   // orders.items.map(obj => obj.items.map(el => console.log(el.item.price * el.count)))
 
@@ -81,7 +82,7 @@ export const PersonalAccount = () => {
         <div className='main__body -order'>
           {
             orders.items.map(obj => {
-              
+              if(obj.user._id == auth.payload._id) {console.log(obj.user._id, auth.payload._id)}
               return (
                 <>
                   <Order item={obj} />
