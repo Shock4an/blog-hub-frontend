@@ -83,8 +83,8 @@ const authSlice = createSlice({
 export const selectIsAuth = state => Boolean(state.auth.data)
 
 export const _userId = state => {
-  console.log(state.auth.data.id)
-  return null
+  // console.log(state.auth.data)
+  return state.auth.data
 };
 
 // export const _userId = state => state.auth.data._id;
