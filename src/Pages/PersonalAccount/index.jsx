@@ -83,12 +83,13 @@ export const PersonalAccount = () => {
         <div className='main__body -order'>
           {
             orders.items.map(obj => {
-              if(obj.user._id == userId) {console.log(obj.user._id, userId)}
-              return (
-                <>
-                  <Order item={obj} />
-                </>
-              )
+              if(obj.user._id == userId) {
+                return (
+                  <>
+                    <Order item={obj} />
+                  </>
+                )
+              }
             })
           }
         </div>
