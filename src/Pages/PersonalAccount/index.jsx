@@ -9,7 +9,6 @@ import { OrderedProduct } from '../../Components/OrderedProduct';
 import { Order } from '../../Components/Order';
 
 export const PersonalAccount = () => {
-  let userId;
 
   const dispatch = useDispatch()
   const isAuth = useSelector(selectIsAuth);
@@ -19,6 +18,7 @@ export const PersonalAccount = () => {
 
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
+  const [userId, setuserId] = useState(null)
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,7 @@ export const PersonalAccount = () => {
         setFullName(auth.payload.fullName)
         setEmail(auth.payload.email)
 
-        userId = auth.payload._id
+        setuserId(auth.payload._id)
 
         dispatch(fetchOrders())
       } catch (err) {
