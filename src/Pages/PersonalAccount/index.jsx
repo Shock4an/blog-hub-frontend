@@ -9,7 +9,6 @@ import { OrderedProduct } from '../../Components/OrderedProduct';
 import { Order } from '../../Components/Order';
 
 export const PersonalAccount = () => {
-  let auth;
 
   const dispatch = useDispatch()
   const isAuth = useSelector(selectIsAuth);
@@ -24,7 +23,7 @@ export const PersonalAccount = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        auth = await dispatch(fetchAuthMe())
+        const auth = await dispatch(fetchAuthMe())
 
         setFullName(auth.payload.fullName)
         setEmail(auth.payload.email)
@@ -83,7 +82,7 @@ export const PersonalAccount = () => {
         <div className='main__body -order'>
           {
             orders.items.map(obj => {
-              if(obj.user._id == userId) {console.log(obj.user._id, auth.payload._id)}
+              if(obj.user._id == userId) {console.log(obj.user._id, userId)}
               return (
                 <>
                   <Order item={obj} />
