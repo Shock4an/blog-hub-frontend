@@ -9,10 +9,10 @@ import { OrderedProduct } from '../../Components/OrderedProduct';
 import { Order } from '../../Components/Order';
 
 export const PersonalAccount = () => {
+  let userId;
 
   const dispatch = useDispatch()
   const isAuth = useSelector(selectIsAuth);
-  const userId = useSelector(_userId)
   const { orders } = useSelector(state => state.orders)
 
   const isOrdersLoading = orders.status === 'loading'
@@ -28,6 +28,8 @@ export const PersonalAccount = () => {
         setFullName(auth.payload.fullName)
         setEmail(auth.payload.email)
 
+        userId = useSelector(_userId._id)
+
         dispatch(fetchOrders())
       } catch (err) {
         console.warn('Ошибка при проверке аутентификации', err);
@@ -40,7 +42,7 @@ export const PersonalAccount = () => {
 
   }, [])
 
-  console.log(userId["_id"])
+  console.log(userId)
   console.log(orders.items)
 
   // orders.items.map(obj => obj.items.map(el => console.log(el.item.price * el.count)))
