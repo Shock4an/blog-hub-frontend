@@ -1,7 +1,7 @@
 import './index.css'
 
 import React, { useState } from 'react';
-import { selectIsAuth, fetchAuthMe, _userId } from '../../redux/slices/auth';
+import { selectIsAuth, fetchAuthMe } from '../../redux/slices/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { fetchOrders } from '../../redux/slices/order';
@@ -28,7 +28,7 @@ export const PersonalAccount = () => {
         setFullName(auth.payload.fullName)
         setEmail(auth.payload.email)
 
-        userId = useSelector(_userId._id)
+        userId = auth.payload._id
 
         dispatch(fetchOrders())
       } catch (err) {
