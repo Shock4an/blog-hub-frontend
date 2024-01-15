@@ -40,7 +40,7 @@ export const PersonalAccount = () => {
 
   }, [])
 
-  console.log(auth.payload)
+  console.log(auth.payload.data)
   console.log(orders)
   console.log(orders.items)
 
